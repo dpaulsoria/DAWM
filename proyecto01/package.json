@@ -1,0 +1,28 @@
+{
+  "name": "proyecto01",
+  "version": "1.0.0",
+  "description": "Proyecto #1 para DAWM",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpaulsoria/DAWM.git"
+  },
+  "author": "Paul Soria",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dpaulsoria/DAWM/issues"
+  },
+  "homepage": "https://github.com/dpaulsoria/DAWM#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
