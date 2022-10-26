@@ -10,7 +10,7 @@
     <title>Paul Soria</title>
 </head>
 <body>
-  <header class="grid item">
+  <header class="grid-item">
     <div class="header--name-container">
       <div class="header--name">
         <h1>Paul</h1>
@@ -35,8 +35,16 @@
       </div>
     </article>
   </header>
+  <nav class="main--nav container">
+    <button class="main--menu-btn">
+      <img src="http://192.168.2.106:8080/static/menu.png" alt="Menu image">
+      <img class="none" src="http://192.168.2.106:8080/static/cross.png" alt="Menu image">
+    </button>
+  </nav>
+
+  
   <main>
-    <section class="main--work-experience-container grid-item">
+    <section id="work-experience--section" class="main--work-experience-container grid-item">
       <div class="main--section-title-container">
         <h2>Work Experience</h2>
       </div>
@@ -63,7 +71,7 @@
         </article>
       </div>
     </section>
-    <section class="main--education-container grid-item">
+    <section id="education--section" class="main--education-container grid-item">
       <div class="main--section-title-container">
         <h2>Education</h2>
       </div>
@@ -80,7 +88,7 @@
         </article>
       </div>
     </section>
-    <section class="main--projects-container grid-item">
+    <section id="projects--section" class="main--projects-container grid-item">
       <div class="main--section-title-container">
         <h2>Projects</h2>
       </div>
@@ -159,6 +167,7 @@
     <aritcle class="footer--forms-get-in-touch-container">
       <h1>Forms</h1>
     </aritcle>
+    <small>Developed by dsoria@espol.edu.ec</small>
   </footer>
 </body>
 </html>
