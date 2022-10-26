@@ -1,0 +1,22 @@
+main {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.main-workExperience {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.main-projects {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 4;
+}
+
+.main-projects-p {
+  flex-direction: row;
+  width: 80vw;
+}
