@@ -206,21 +206,15 @@ header > .container {
 .logo a {
   font-weight: bold;
   font-size: 2rem;
+  color: var(--white-color);
+
 }
 
 .home {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
-}
-
-.container {
-  width: 10rem;
-  border-radius: var(--border-radius);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .article--name-container {
@@ -231,6 +225,10 @@ header > .container {
   background-color: var(--first-title-color);
   color: var(--white-color);
   height: auto;
+  border-radius: var(--border-radius);
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
 }
 
 .name-item {
@@ -253,16 +251,14 @@ header > .container {
 }
 
 .profile-photo {
-  margin: 1.2rem 0.8rem;
-  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.8rem;
   border-radius: var(--border-radius);
   background-color: var();
 }
 
-.article--photo-container {
-  padding: 0;
-  margin-bottom: 0;
-}
 
 .profile-photo img {
   width: 50vw;
