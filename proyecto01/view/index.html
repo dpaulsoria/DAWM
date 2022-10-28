@@ -36,20 +36,21 @@
       </nav>
   </header>
 
-  <section id="home" class="home container">
-    <article class="name-container container box-shadow  flex-container">
-      <div class="name name-item">
+  <section id="home" class="home container flex-container">
+    <aside class="main-home">
+      <article class="name-container container box-shadow border-radius flex-container flex-wrap">
+      <div id="name" class="name-item">
         <h1>Paul</h1>
       </div>
-      <div class="lastname name-item">
+      <div id="lastname" class="name-item">
         <h1>Soria</h1>
       </div>
     </article>
 
-    <section class="container box-shadow flex-container">
-      <article class="article--photo-container container">
+    <section class=" border-radius container box-shadow flex-container photo-container">
+      <article class="container">
         <div class="profile-photo">
-          <img src="http://192.168.2.106:8080/static/profile.png" alt="Paul Soria's profile photo">
+          <img class="border-radius" src="http://192.168.2.106:8080/static/profile.png" alt="Paul Soria's profile photo">
         </div>
       </article>
       <article class="links container">
@@ -65,21 +66,22 @@
         </div>
       </article>
     </section>
+    </aside>
     <h2 id="career" class="subtitle emphasis">Computer Science Engineer</h2>
   </section>
 
   <section id="about" class="about container complete flex-container">
-    <h2 class="subtitle">About</h2>
-    <article class="about-container">
+    <article class="about-container flex-container">
+
+      <h2 class="subtitle">About</h2>
       <p class="about-me">
         I am passionate about programming and understanding how some complex mechanisms work. I am really dedicated to what I like, in my family they say that I was born for this career.
       </p>
-      <aside class="mark">
-        <small>About</small>
-      </aside>
       <div class="link">
-        <a href="http://192.168.2.106:8080/static/CV-DannySoria-SoftwareDeveloper.pdf" class="btn" target="_blank" rel="noopener">Download my CV</a>
+        <a href="http://192.168.2.106:8080/static/CV-DannySoria-SoftwareDeveloper.pdf" class="btn border-radius" target="_blank" rel="noopener">Download my CV</a>
       </div>
+    </article>
+    <article class="about-container flex-container">
       <h3 class="subtitle emphasis">University</h3>
       <p>
         I started my studies in 2018 at espol, I continue studying at this university until now, here is a video of the campus and its location
@@ -89,13 +91,17 @@
         <source src="http://192.168.2.106/static/espol.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
+
+      <aside class="mark">
+        <small>About</small>
+      </aside>
     </article>
   </section>
 
-  <section id="projects" class="projects container grid-container complete flex-container">
+  <section id="projects" class="container grid-container complete flex-container">
     <h2 class="subtitle">Projects</h2>
-    <article id="tictactoe-project" class="projects-item container grid-item">
-      <aside class="project-info">
+    <article id="tictactoe-project" class="projects-item flex-container container grid-item">
+      <aside class="project-info ">
         <div class="container">
           <div class="data">
             <h2>Tic Tac Toe: Using Data Structures in <b><i>Java</i></b></h2>
@@ -107,7 +113,7 @@
             </a>
           </div>
         </div>
-        <div class="description">
+        <div class="description flex-container">
           <p>Tic tac toe is a game developed using Dijkstra algorithm and the Object Oriented Programming (OOP) paradigm, that shows the player a clue for the next step to beat the simulated AI.</p>
         </div>
 
@@ -121,7 +127,7 @@
         </div>
       </div>
     </article>
-    <article id="cAnalyzer-project" class="projects-item container grid-item">
+    <article id="cAnalyzer-project" class="projects-item flex-container  container grid-item">
       <aside class="project-info">
         <div class="container">
             <div class="data">
@@ -134,7 +140,7 @@
             </a>
           </div>
         </div>
-        <div class="description">
+        <div class="description flex-container">
           <p>cAnalyzer is an analyzer for C language, developed in Python using the PLY module and tkinter for GUI</p>
         </div>
       </aside>
@@ -146,11 +152,11 @@
     </article>
 
 
-    <article id="discoveringEcuador-project" class="projects-item container grid-item">
+    <article id="discoveringEcuador-project" class="projects-item flex-container  container grid-item">
       <aside class="project-info">
         <div class="container">
             <div class="data">
-            <h2>Game: Discovering Ecuador<b><i> Developed in Java</i></b></h2>
+            <h2>Discovering Ecuador, a game<b><i> Developed in Java</i></b></h2>
             <h3>Course: Discrete Maths</h3>
           </div>
           <div class="link">
@@ -159,7 +165,7 @@
             </a>
           </div>
         </div>
-        <div class="description">
+        <div class="description flex-container">
           <p>Discovering Ecuador is a game about Ecuador, its typical foods and its regions, with a random roulette modality</p>
         </div>
       </aside>
@@ -173,7 +179,7 @@
       </aside>
   </section>
 
-  <section id="certifications" class="complete flex-container">
+  <section id="certifications" class="complete container flex-container">
     <aside><h2 class="subtitle">Certifications</h2></aside>
     <article id="table-container" class="container">
       <table>
