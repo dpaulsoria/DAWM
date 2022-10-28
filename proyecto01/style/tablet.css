@@ -29,3 +29,42 @@
   --first-title-alpha-color: rgba(57, 171, 135, 0.75);
 
 }
+
+.home, .about {
+  width: 50vw;
+}
+
+.section--profile, .article--name-container {
+  width: 30vw;
+  height: auto;
+}
+
+.about-container {
+  width: inherit;
+}
+
+.border-dashes {
+  border-left: dashed var(--black-color) 0.4rem;
+  border-right: dashed var(--black-color) 0.4rem;
+  border-top: dashed var(--black-color) 0.4rem;
+  border-bottom: dashed var(--black-color) 0.4rem;
+  border-top: 0;
+  border-bottom: 0;
+  margin: 1.2rem 0;
+  padding: 1.2rem;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.about {
+  margin-top: 0;
+}
+
+
+.contact-me {
+  width: 100vw;
+}

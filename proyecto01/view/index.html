@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://192.168.2.106:8080/static/styles.css">
-    <link rel="stylesheet" media="(min-width: 376px)" href="http://192.168.2.106:8080/static/phone-M.css">
-    <link rel="stylesheet" media="(min-width: 426px)" href="http://192.168.2.106:8080/static/tablet.css">
-    <link rel="stylesheet" media="(min-width: 1024px)" href="http://192.168.2.106:8080/static/laptop.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,700&family=Pacifico&display=swap" rel="stylesheet">
+
     <title>Paul Soria</title>
 </head>
 <body>
@@ -33,8 +35,8 @@
     </section>
   </header>
 
-  <section id="home" class="home">
-    <article class="article--name-container container box-shadow">
+  <section id="home" class="home container">
+    <article class="name-container container box-shadow">
       <div class="name name-item">
         <h1>Paul</h1>
       </div>
@@ -42,13 +44,14 @@
         <h1>Soria</h1>
       </div>
     </article>
-    <section class="section--profile box-shadow">
+
+    <section class="container box-shadow">
       <article class="article--photo-container container">
         <div class="profile-photo">
           <img src="http://192.168.2.106:8080/static/profile.png" alt="Paul Soria's profile photo">
         </div>
       </article>
-      <article class="article--links-container container">
+      <article class="links container">
         <div class="link">
           <a href="https://linkedin.com/in/dpaulsoria">
             <img src="http://192.168.2.106:8080/static/linkedin.png" alt="Linkedin's logo">
@@ -61,30 +64,41 @@
         </div>
       </article>
     </section>
+    <h2 id="career" class="subtitle emphasis">Computer Science Engineer</h2>
   </section>
 
-  <section id="about" class="about">
-    <article class="about-container">
-      <h2>Computer Science Engineer</h2>
-      <p>
+  <section id="about" class="about container complete">
+    <h2 class="subtitle">About</h2>
+    <article class="about-container container">
+      <p class="about-me">
         I am passionate about programming and understanding how some complex mechanisms work. I am really dedicated to what I like, in my family they say that I was born for this career.
       </p>
-      <aside class="about-mark mark">
+      <aside class="mark">
         <small>About</small>
       </aside>
-      <div class="download-cv">
+      <div class="link">
         <a href="http://192.168.2.106:8080/static/CV-DannySoria-SoftwareDeveloper.pdf" class="btn" target="_blank" rel="noopener">Download my CV</a>
       </div>
+      <h3 class="subtitle emphasis">University</h3>
+      <p>
+        I started my studies in 2018 at espol, I continue studying at this university until now, here is a video of the campus and its location
+      </p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.01517936802!2d-79.96675808466465!3d-2.1478748377800585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d72f925e5bfdb%3A0x327cdb9f7f4ba3b2!2sEscuela%20Superior%20Politecnica%20del%20Litoral!5e0!3m2!1sen!2sec!4v1666912724867!5m2!1sen!2sec" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <video controls>
+        <source src="http://192.168.2.106/static/espol.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </article>
   </section>
 
-  <section id="projects" class="projects projects-container grid-container">
-    <article id="tictactoe-project" class="projects-item-container grid-item">
-      <aside class="project-info tictactoe-info">
-        <div class="flex-data-container">
+  <section id="projects" class="projects container grid-container complete">
+    <h2 class="subtitle">Projects</h2>
+    <article id="tictactoe-project" class="projects-item container grid-item">
+      <aside class="project-info">
+        <div class="container">
           <div class="data">
             <h2>Tic Tac Toe: Using Data Structures in <b><i>Java</i></b></h2>
-            <h3>Course: Data Structures</h3>
+            <h3 class="emphasis">Course: Data Structures</h3>
           </div>
           <div class="link">
             <a href="https://github.com/dpaulsoria/tictactoe">
@@ -97,7 +111,7 @@
         </div>
 
       </aside>
-      <div class="tictactoe-project-imgs flex-container">
+      <div class="project-imgs container">
         <div class="flex-item">
           <img src="http://192.168.2.106:8080/static/tictactoe/1.png" alt="">
         </div>
@@ -106,12 +120,12 @@
         </div>
       </div>
     </article>
-    <article id="cAnalyzer-project" class="projects-item-container grid-item">
-      <aside class="project-info cAnalyzer-info">
-        <div class="flex-data-container">
+    <article id="cAnalyzer-project" class="projects-item container grid-item">
+      <aside class="project-info">
+        <div class="container">
             <div class="data">
             <h2>Lexical and Syntactic Anaylzer for<b><i>C language</i></b></h2>
-            <h3>Course: Programming Languages</h3>
+            <h3 class="emphasis">Course: Programming Languages</h3>
           </div>
           <div class="link">
             <a href="https://github.com/dpaulsoria/cAnalyzer">
@@ -123,7 +137,7 @@
           <p>cAnalyzer is an analyzer for C language, developed in Python using the PLY module and tkinter for GUI</p>
         </div>
       </aside>
-      <div class="cAnalyzer-project-imgs flex-container">
+      <div class="project-imgs container">
         <div class="flex-item"><img src="http://192.168.2.106:8080/static/cAnalyzer/1.png" alt=""></div>
         <div class="flex-item"><img src="http://192.168.2.106:8080/static/cAnalyzer/2.png" alt=""></div>
         <div class="flex-item"><img src="http://192.168.2.106:8080/static/cAnalyzer/3.png" alt=""></div>
@@ -131,9 +145,9 @@
     </article>
 
 
-    <article id="discoveringEcuador-project" class="projects-item-container grid-item">
-      <aside class="project-info discoveringEcuador-info">
-        <div class="flex-data-container">
+    <article id="discoveringEcuador-project" class="projects-item container grid-item">
+      <aside class="project-info">
+        <div class="container">
             <div class="data">
             <h2>Game: Discovering Ecuador<b><i> Developed in Java</i></b></h2>
             <h3>Course: Discrete Maths</h3>
@@ -145,22 +159,74 @@
           </div>
         </div>
         <div class="description">
-          <p>D..</p>
+          <p>Discovering Ecuador is a game about Ecuador, its typical foods and its regions, with a random roulette modality</p>
         </div>
       </aside>
-      <div class="cAnalyzer-project-imgs flex-container">
+      <div class="project-imgs container">
         <div class="flex-item"><img src="http://192.168.2.106:8080/static/discoveringEcuador/1.png" alt=""></div>
         <div class="flex-item"><img src="http://192.168.2.106:8080/static/discoveringEcuador/2.png" alt=""></div>
       </div>
     </article>
+      <aside class="mark">
+        <small>Projects</small>
+      </aside>
   </section>
 
-  <section id="certifications" class="certifications">
-    <h2>Certifications</h2>
+  <section id="certifications" class="complete">
+    <aside><h2 class="subtitle">Certifications</h2></aside>
+    <article id="table-container" class="container">
+      <table>
+      <tr>
+        <th>Design Systems</th>
+        <th>Git and Github Professional Course</th>
+        <th>Mathematics for machine learning: Linear Algebra</th>
+      </tr>
+      <tr>
+        <td>Platzi</td>
+        <td>Platzi</td>
+        <td>Imperial College London</td>
+      </tr>
+      <tr>
+        <td><i>37 Hours</i></td>
+        <td><i>22 Hours</i></td>
+        <td><i>25 Hours</i></td>
+      </tr>
+      <tr>
+        <td><div class="link">
+        <a href="http://192.168.2.106:8080/static/Certifications/DeisgnSystems.pdf" class="btn-cert" target="_blank" rel="noopener">Download</a>
+      </div></td>
+      <td><div class="link">
+        <a href="http://192.168.2.106:8080/static/Certifications/GitGithubProfessinalCourse-Platzi.pdf" class="btn-cert" target="_blank" rel="noopener">Download</a>
+      </div></td>
+      <td><div class="link">
+        <a href="http://192.168.2.106:8080/static/Certifications/ICL-MfML.pdf" class="btn-cert" target="_blank" rel="noopener">Download</a>
+      </div></td>
+      </tr>
+    </table>
+    </article>
+    <aside class="mark">
+      <small>Certifications</small>
+    </aside>
   </section>
 
   <section id="contact-me" class="contact-me">
-    <h2>Contact me</h2>
+    <article class="container">
+      <h2 class="subtitle">Contact me</h2>
+      <form class="contact-form box-shadow-1">
+        <input type="text" name="name" placeholder=" Name *"
+          title="Only letters and blank spaces" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
+        <input type="email" name="email" placeholder=" Email *" title="Wrong email"
+          pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
+        <textarea name="comments" cols="50" rows="10" placeholder="Message *" required></textarea>
+        <div class="contact-form-loader text-center none">
+          <img class="img" src="http://192.168.2.106:8080/static/mail-send.png" alt="Enviando...">
+        </div>
+        <input class="btn" type="submit" value="SEND MESSAGE">
+      </form>
+    </article>
+      <aside class="mark">
+        <small>Contact me</small>
+      </aside>
   </section>
 
   <footer>

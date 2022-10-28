@@ -3,33 +3,25 @@
   --max-width: 1200px;
   --header-height: 4rem;
 
-  --font: "Arial", "sans-serif";
+  --font: 'Montserrat', sans-serif;;
   --mark-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --cursive-font: 'Pacifico', cursive;
   --border-radius: 1.5rem;
 
-  --first-color: #C1605C;
-  --first-alpha-color: rgba(193, 96, 92, 0.75);
-  --second-color: #E9C3B8;
-  --second-alpha-color: rgba(233, 195, 184, 0.75);
-  --third-color: #FDF0EC;
-  --third-alpha-color: rgba(253, 240, 236, 0.75);
-  --white-color: #FEFBF6;
-  --white-alpha-color: rgba(254, 251, 246, 0.75);
+  --first-color: #05445E;
+  --first-alpha-color: rgba(5, 68, 94, 0.75);
+  --second-color: #189AB4;
+  --second-alpha-color: rgb(24, 154, 180, 0.75);
+  --third-color: #75E6DA;
+  --third-alpha-color: rgb(117, 230, 218, 0.75);
+  --fourth-color: #D4F1F4;
+  --fourth-alpha-color: rgba(212, 241, 244, 0.75);
 
-  --first-contrast-color: #224A54;
-  --first-contrast-alpha-color: rgba(34, 74, 84, 0.75);
-  --second-contrast-color: #1F4954;
-  --second-contrast-alpha-color: rgba(31, 73, 84, 0.75);
-  --third-contrast-color: #98BEC8;
-  --third-contrast-alpha-color: rgba(152, 190, 200, 0.75);
-  --fourth-contast-color: #D7E0E5;
-  --fourth-contrast-alpha-color: rgba(215, 224, 229, 0.75);
-  --black-color: #1A1A1A;
-  --black-alpha-color: rgba(26, 26, 26, 0.75);
 
-  --first-title-color: #3BAB87;
-  --first-title-alpha-color: rgba(57, 171, 135, 0.75);
-
+  --gray-color: #CCC;
+  --gray-light-color: #f3f3f3;
+  --white-color: #fff;
+  --black-color: #2f2f2f;
 }
 
 /* Reset */
@@ -119,6 +111,7 @@ ul {
   /* outline: thin solid var(--first-color); */
   border: 0;
   cursor: pointer;
+
 }
 
 .menu-btn img {
@@ -173,9 +166,16 @@ ul {
 }
 
 .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
   max-width: var(--max-width);
+  margin: 1.2rem 0;
+  padding: 1.2rem;
 }
 
 .none {
@@ -186,11 +186,33 @@ ul {
   color: var(--white-color);
   background-color: var(--first-color);
   padding: 1rem;
+  margin: 2rem;
   border-radius: var(--border-radius);
   font-weight: bold;
   text-align: center;
   text-decoration: none;
 }
+
+.btn-cert {
+  color: var(--white-color);
+  background-color: var(--first-color);
+  padding: 0.4rem;
+  margin: 0.8rem;
+  border-radius: var(--border-radius);
+}
+
+
+.complete {
+  height: auto;
+}
+
+
+iframe, video {
+  width: 90%;
+  height: auto;
+  margin-bottom: 1.2rem;
+}
+
 
 /* Site styles */
 
@@ -199,7 +221,6 @@ header {
   left: 0;
   bottom: 0;
   padding: 1rem;
-
   z-index: 999;
   width: 100%;
   height: var(--header-height);
@@ -226,6 +247,7 @@ header > .container {
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
+  height: auto;
 }
 
 .article--name-container {
@@ -288,24 +310,29 @@ header > .container {
   margin-bottom: 0.4rem;
 }
 
-.link a img{
+.link a img, .img{
   width: auto;
   height: 2.4rem;
 }
 
+.about {
+  background-color: var(--second-color);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .about-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
   width: auto;
-  height: fit-content;
-  margin: 1.2rem 0;
-  padding: 1.2rem;
-  background-color: var(--second-color);
-  position: relative;
-  border-top: dashed var(--black-color) 0.4rem;
-  border-bottom: dashed var(--black-color) 0.4rem;
+  height: auto;
+  gap: 1.2rem;
 }
 
 .about-container p, .about-container h2 {
@@ -320,6 +347,14 @@ header > .container {
   left: 0.4rem;
   color: var(--first-contrast-color);
   font-weight: bold;
+}
+
+#projects,
+.about,
+#certifications,
+.certifications-container,
+.contact-me {
+  position: relative;
 }
 
 .download-cv {
@@ -377,4 +412,153 @@ header > .container {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+table {
+  text-align: center;
+  height: 90%;
+  font-size: 0.84rem;
+}
+.download-cv {
+  width: auto;
+}
+
+th {
+  color: var(--white-color);
+}
+
+td {
+  min-width: 25vw;
+  max-width: 30vw;
+}
+
+#certifications {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--third-contrast-color);
+}
+
+.certifications-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0.8rem;
+  height: auto;
+  width: fit-content;
+}
+
+.certifications-table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.title-container {
+  background-color: var(--second-contrast-color);
+  color: var(--white-color);
+  padding: 0.8rem;
+  border-radius: var(--border-radius);
+  width: 60vw;
+}
+
+#projects {
+  background-color: var(--fourth-contast-color);
+}
+
+.contact-form {
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 90vw;
+}
+
+.contact-form > * {
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block;
+  width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+  font-size: 0.85rem;
+  font-family: var(--font);
+}
+
+.contact-form input {
+  border: 0;
+  padding-left: 0;
+  border-bottom: thin solid var(--gray-dark-color);
+}
+
+.contact-form textarea {
+  border: thin solid var(--gray-dark-color);
+  resize: none;
+}
+
+.contact-form input[type="submit"] {
+  margin-top: 0;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+
+.contact-form input[type="submit"]:hover {
+  opacity: 0.75;
+}
+
+.contact-form *::placeholder {
+  color: var(--gray-dark-color);
+}
+
+.contact-form-response {
+  padding: 1rem;
+  width: 40rem;
+  text-align: center;
+  background-color: var(--white-color);
+}
+.contact-form-response svg {
+  margin-top: 2rem;
+  width: 4rem;
+  height: 4rem;
+  fill: var(--first-color);
+}
+
+#career {
+  width: 30vw;
+  text-align: center;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.me {
+  font-style: italic;
+}
+
+.contact-me-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.subtitle {
+  background-color: var(--first-contrast-color);
+  color: var(--white-color);
+  padding: 0.2rem 6rem;
+  margin: 0.2rem 4rem;
+  text-align: center;
+}
+
+.contact-me {
+  background-color: var(--fourth-contrast-color);
+}
+
+
+.flex-container img {
+  width: 40vw;
+  height: auto;
 }

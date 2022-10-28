@@ -71,3 +71,50 @@ header {
   flex-direction: row;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.grid-item {
+  width: 50vw;
+  height: auto;
+}
+
+.flex-container {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+.project-info, .data, .flex-data-container {
+  width: 40vw;
+  margin: 0.4rem;
+}
+
+.data > h2 {
+  margin: 0.4rem;
+}
+
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+
+#discoveringEcuador-project {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100vw;
+}
+
+#discoveringEcuador-project > .project-info {
+  width: 60vw;
+}
+
+iframe {
+  width: 40vw;
+  height: auto;
+}
