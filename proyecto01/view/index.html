@@ -15,17 +15,19 @@
 <body>
   <header>
     <section class="container">
-      <div class="logo">
-        <a href="index.html">dpaulsoria</a>
+      <div class="flex-container">
+          <div class="logo">
+          <a href="index.html">dpaulsoria</a>
+        </div>
+        <div class="menu-btn-container">
+          <button class="menu-btn">
+            <img class="menu-btn-img" src="http://192.168.2.106:8080/static/menu.png" alt="Menu image">
+            <img class="menu-btn-img none" src="http://192.168.2.106:8080/static/cross.png" alt="Cross image">
+          </button>
+        </div>
       </div>
-      <div class="menu-btn-container">
-        <button class="menu-btn">
-          <img class="menu-btn-img" src="http://192.168.2.106:8080/static/menu.png" alt="Menu image">
-          <img class="menu-btn-img none" src="http://192.168.2.106:8080/static/cross.png" alt="Cross image">
-        </button>
-      </div>
-      <nav class="menu">
-        <ul>
+      <nav>
+        <ul class="menu flex-container">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
@@ -36,7 +38,7 @@
   </header>
 
   <section id="home" class="home container">
-    <article class="name-container container box-shadow">
+    <article class="name-container container box-shadow  flex-container">
       <div class="name name-item">
         <h1>Paul</h1>
       </div>
@@ -45,7 +47,7 @@
       </div>
     </article>
 
-    <section class="container box-shadow">
+    <section class="container box-shadow flex-container">
       <article class="article--photo-container container">
         <div class="profile-photo">
           <img src="http://192.168.2.106:8080/static/profile.png" alt="Paul Soria's profile photo">
@@ -67,7 +69,7 @@
     <h2 id="career" class="subtitle emphasis">Computer Science Engineer</h2>
   </section>
 
-  <section id="about" class="about container complete">
+  <section id="about" class="about container complete flex-container">
     <h2 class="subtitle">About</h2>
     <article class="about-container container">
       <p class="about-me">
@@ -91,7 +93,7 @@
     </article>
   </section>
 
-  <section id="projects" class="projects container grid-container complete">
+  <section id="projects" class="projects container grid-container complete flex-container">
     <h2 class="subtitle">Projects</h2>
     <article id="tictactoe-project" class="projects-item container grid-item">
       <aside class="project-info">
@@ -172,7 +174,7 @@
       </aside>
   </section>
 
-  <section id="certifications" class="complete">
+  <section id="certifications" class="complete flex-container">
     <aside><h2 class="subtitle">Certifications</h2></aside>
     <article id="table-container" class="container">
       <table>
@@ -193,13 +195,13 @@
       </tr>
       <tr>
         <td><div class="link">
-        <a href="http://192.168.2.106:8080/static/Certifications/DeisgnSystems.pdf" class="btn-cert" target="_blank" rel="noopener">Download</a>
+        <a href="http://192.168.2.106:8080/static/Certifications/DeisgnSystems.pdf" class="btn" target="_blank" rel="noopener">Download</a>
       </div></td>
       <td><div class="link">
-        <a href="http://192.168.2.106:8080/static/Certifications/GitGithubProfessinalCourse-Platzi.pdf" class="btn-cert" target="_blank" rel="noopener">Download</a>
+        <a href="http://192.168.2.106:8080/static/Certifications/GitGithubProfessinalCourse-Platzi.pdf" class="btn" target="_blank" rel="noopener">Download</a>
       </div></td>
       <td><div class="link">
-        <a href="http://192.168.2.106:8080/static/Certifications/ICL-MfML.pdf" class="btn-cert" target="_blank" rel="noopener">Download</a>
+        <a href="http://192.168.2.106:8080/static/Certifications/ICL-MfML.pdf" class="btn" target="_blank" rel="noopener">Download</a>
       </div></td>
       </tr>
     </table>
@@ -209,7 +211,7 @@
     </aside>
   </section>
 
-  <section id="contact-me" class="contact-me">
+  <section id="contact-me" class="contact-me flex-container">
     <article class="container">
       <h2 class="subtitle">Contact me</h2>
       <form class="contact-form box-shadow-1">
