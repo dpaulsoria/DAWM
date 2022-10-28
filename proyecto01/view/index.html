@@ -14,9 +14,8 @@
 </head>
 <body>
   <header>
-    <section class="container">
-      <div class="flex-container">
-          <div class="logo">
+      <div id="nav-bar" class="nav-bar">
+        <div class="logo">
           <a href="index.html">dpaulsoria</a>
         </div>
         <div class="menu-btn-container">
@@ -31,10 +30,10 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#certifications">Certifications</a></li>
           <li><a href="#contact-me">Contact me</a></li>
         </ul>
       </nav>
-    </section>
   </header>
 
   <section id="home" class="home container">
@@ -71,7 +70,7 @@
 
   <section id="about" class="about container complete flex-container">
     <h2 class="subtitle">About</h2>
-    <article class="about-container container">
+    <article class="about-container">
       <p class="about-me">
         I am passionate about programming and understanding how some complex mechanisms work. I am really dedicated to what I like, in my family they say that I was born for this career.
       </p>
@@ -113,7 +112,7 @@
         </div>
 
       </aside>
-      <div class="project-imgs container">
+      <div class="project-imgs flex-container">
         <div class="flex-item">
           <img src="http://192.168.2.106:8080/static/tictactoe/1.png" alt="">
         </div>
@@ -126,7 +125,7 @@
       <aside class="project-info">
         <div class="container">
             <div class="data">
-            <h2>Lexical and Syntactic Anaylzer for<b><i>C language</i></b></h2>
+            <h2>Lexical and Syntactic Anaylzer for <b><i>C language</i></b></h2>
             <h3 class="emphasis">Course: Programming Languages</h3>
           </div>
           <div class="link">
@@ -139,7 +138,7 @@
           <p>cAnalyzer is an analyzer for C language, developed in Python using the PLY module and tkinter for GUI</p>
         </div>
       </aside>
-      <div class="project-imgs container">
+      <div class="project-imgs flex-container">
         <div class="flex-item"><img src="http://192.168.2.106:8080/static/cAnalyzer/1.png" alt=""></div>
         <div class="flex-item"><img src="http://192.168.2.106:8080/static/cAnalyzer/2.png" alt=""></div>
         <div class="flex-item"><img src="http://192.168.2.106:8080/static/cAnalyzer/3.png" alt=""></div>
@@ -164,7 +163,7 @@
           <p>Discovering Ecuador is a game about Ecuador, its typical foods and its regions, with a random roulette modality</p>
         </div>
       </aside>
-      <div class="project-imgs container">
+      <div class="project-imgs flex-container">
         <div class="flex-item"><img src="http://192.168.2.106:8080/static/discoveringEcuador/1.png" alt=""></div>
         <div class="flex-item"><img src="http://192.168.2.106:8080/static/discoveringEcuador/2.png" alt=""></div>
       </div>
@@ -211,8 +210,8 @@
     </aside>
   </section>
 
-  <section id="contact-me" class="contact-me flex-container">
-    <article class="container">
+  <section id="contact-me" class=" container contact-me flex-container">
+    <article>
       <h2 class="subtitle">Contact me</h2>
       <form class="contact-form box-shadow-1">
         <input type="text" name="name" placeholder=" Name *"

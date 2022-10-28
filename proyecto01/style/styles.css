@@ -1,8 +1,9 @@
 /* Custom Properties */
 :root {
   --max-width: 120rem;
-  --header-height: 7rem;
-  --logo-font-size: 2rem;
+  --header-height: 5rem;
+  --logo-font-size: 1.8rem;
+  --menu-font-large: 2rem;
 
   --font: 'Montserrat', sans-serif;;
   --mark-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -132,8 +133,9 @@ iframe, video, form {
 }
 
 .container {
-  margin: 0 0.8rem;
+  margin: 2rem 0.8rem;
   height: auto;
+  position: relative;
 }
 
 .flex-container {
@@ -148,9 +150,34 @@ iframe, video, form {
   flex-wrap: wrap;
 }
 
+.project-imgs {
+  flex-wrap: wrap;
+}
+
+.flex-item img {
+  width: 40vw;
+  height: auto;
+}
+
+.mark {
+  font-style: italic;
+  font-family: var(--mark-font);
+  position: absolute;
+  bottom: 0.4rem;
+  left: 0.4rem;
+  color: var(--first-contrast-color);
+  font-weight: bold;
+}
 
 .none {
   display: none;
+}
+
+.subtitle {
+  color: var(--white-color);
+  background-color: var(--second-color);
+  padding: 1rem;
+  width: 80vw;
 }
 
 /* Site config */
@@ -201,15 +228,10 @@ iframe, video, form {
   fill: var(--first-alpha-color);
 }
 
-nav {
-  width: 100%;
-}
-
-.container > .flex-container {
-  flex-direction: row;
-  justify-content: space-between;
+#nav-bar {
+  display: flex;
   align-items: center;
-  padding: 1rem;
+  justify-content: space-between;
 }
 
 .logo {
@@ -227,6 +249,37 @@ header {
   bottom: 0;
   left: 0;
   position: fixed;
+}
+
+header a {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+
+@media screen and (min-width: 720px) {
+  header {
+    top: 0;
+
+  }
+
+  .menu {
+    top: var(--header-height);
+    bottom: 0;
+    background-color: var(--second-alpha-color);
+
+  }
+
+  .menu a {
+    font-size: var(--menu-font-large);
+  }
+}
+
+
+/* Certifications */
+
+#certifications table {
+  height: 20vh;
 }
 
 
