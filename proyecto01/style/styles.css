@@ -117,7 +117,7 @@ img {
   height: auto;
 }
 
-iframe, video, form {
+iframe, form {
   width: 80%;
   height: auto;
 }
@@ -402,7 +402,7 @@ header a {
 .home {
   height: calc(100vh - var(--header-height));
   justify-content: space-evenly;
-background-image: url(http://www.revistas.espol.edu.ec/public/site/images/oruiz/ESPOL.jpg);
+  background-image: url('../public/espol.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -595,6 +595,15 @@ background-image: url(http://www.revistas.espol.edu.ec/public/site/images/oruiz/
   margin: 0 0 1rem 0;
 }
 
+.video-container {
+  gap: 1rem;
+}
+
+iframe {
+  width: 100%;
+  height: auto;
+}
+
 @media screen and (min-width: 720px) {
 
   .about {
@@ -616,16 +625,14 @@ background-image: url(http://www.revistas.espol.edu.ec/public/site/images/oruiz/
     width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 1rem;
   }
 
-  video, iframe {
-    width: 40%;
-    height: auto;
-  }
   iframe {
-    height: 40vh;
+    width: 40%;
+    height: 50vh;
   }
+
+
 }
 
 @media screen and (min-width: 1920px) {
@@ -663,17 +670,6 @@ background-image: url(http://www.revistas.espol.edu.ec/public/site/images/oruiz/
     justify-content: space-around;
     gap: 2rem;
   }
-
-  iframe, video {
-    width: 50%;
-    height: auto;
-  }
-
-  iframe {
-    height: 50vh;
-  }
-
-
 
 }
 
