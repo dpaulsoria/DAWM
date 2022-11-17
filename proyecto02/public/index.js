@@ -81,7 +81,7 @@ function removeChilds(parent) {
 }
 
 function capitalize(str) {
-  let c = 0
+/*   let c = 0
   let tmp = ''
   Array.from(str).forEach((element, index) => {
     if (c === 0)
@@ -91,7 +91,8 @@ function capitalize(str) {
     c++
   })
   
-  return tmp
+  return tmp */
+  return str[0].toUpperCase() + str.substring(1)
 }
 
 let timer = document.getElementById('timer')
