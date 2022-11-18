@@ -30,8 +30,12 @@ function generatePokemonCard(data) {
     data.sprites.other["home"].front_default,
   ];
   let card = document.createElement("div");
-  card.className = "card flex";
+  card.className = "pokemon-card card flex p-2";
 
+  let firstDiv = document.createElement('div');
+  let secondDiv = document.createElement('div');
+  firstDiv.className = 'flex space-between'
+  secondDiv.className = 'flex space-between'
   let header = document.createElement("div");
   let img = document.createElement("div");
   let description = document.createElement("div");
@@ -39,6 +43,7 @@ function generatePokemonCard(data) {
   header.className = "header";
   let newH2 = document.createElement("h2");
   newH2.className = "card-title color-white rounded p-2";
+  newH2.id = "currentPokemon"
   newH2.innerHTML = data.name.toUpperCase() + " #" + data.id;
   header.appendChild(newH2);
 
@@ -49,8 +54,12 @@ function generatePokemonCard(data) {
   newDiv.appendChild(newImg);
   img.appendChild(newDiv);
 
+  if (firstDiv.hasChildNodes) removeChilds(firstDiv)
+  firstDiv.appendChild(header)
+  firstDiv.appendChild(img)
+
   let newH3 = document.createElement("h3");
-  newH3.className = 'card-title color-white rounded p-2'
+  newH3.className = 'card-title-alpha color-white rounded p-2'
   newH3.innerHTML = "Abilities";
 
   let newUl = document.createElement("ul");
@@ -58,28 +67,36 @@ function generatePokemonCard(data) {
   Array.from(data.abilities).forEach((element, index) => {
     let newLi = document.createElement("li");
     newLi.innerHTML = capitalize(element.ability.name);
-    newLi.className = "card-text";
+    newLi.className = "card-text p-1";
     newUl.appendChild(newLi);
   });
 
-  description.className = "Description";
+  description.className = "description";
   newDiv = document.createElement("div");
   newDiv.className = "abilities card-body";
   newDiv.appendChild(newH3);
   newDiv.appendChild(newUl);
   description.appendChild(newDiv);
 
-  card.appendChild(header);
+  // card.appendChild(header);
 
   img.className = "img glass";
-  card.appendChild(img);
-  card.appendChild(description);
+  // card.appendChild(img);
+  // card.appendChild(description);
   let typesContainer = document.createElement('div')
   typesContainer.className = "container";
   typesContainer.innerHTML = `
     <div id="types" class=""></div>
   `;
-  card.appendChild(typesContainer)
+  // card.appendChild(typesContainer)
+
+  if (secondDiv.hasChildNodes) removeChilds(secondDiv);
+  secondDiv.appendChild(description);
+  secondDiv.appendChild(typesContainer);
+
+  card.appendChild(firstDiv)
+  card.appendChild(secondDiv)
+
   container.appendChild(card);
 }
 
@@ -145,21 +162,73 @@ function searchPokemon(id = undefined) {
       // console.log(tmp);
 
       let typesBanner = document.querySelector("#types");
-      typesBanner.className = `flex-row`;
-      typesBanner.innerHTML = "";
+      typesBanner.className = 'flex';
+      if (typesBanner.hasChildNodes) removeChilds(typesBanner)
       Array.from(res.types).forEach((element, index) => {
         typesBanner.innerHTML += `
-        <div class="rounded col color-white ${element.type.name}">
-            <h2 class="fs-3 fw-bold mb-0 p-1">${capitalize(
+        <div class="rounded col color-white type-container ${element.type.name}">
+            <h4 class="fw-bold mb-0 p-1">${capitalize(
               element.type.name
-            )}</h2>
+            )}</h4>
         </div>
         `;
       });
+      
+      
+      console.log(res.abilities);
+      // let abilitiesBanner = document.querySelector("#abilitiesBanner");
+      // if (abilitiesBanner.hasChildNodes) removeChilds(abilitiesBanner);
+      // Array.from(res.abilities).forEach((element, index) => {
+      //   let ability = document.createElement("div");
+      //   ability.className = "col-md-6 col-xl-3 mb-4";
+      //   ability.innerHTML = `
+      //   <div class="card shadow border-start-primary py-2">
+      //     <div class="card-body">
+      //       <div class="row align-items-center no-gutters">
+      //         <div class="col me-2">
+      //           <div
+      //             class="text-uppercase text-primary fw-bold text-xs mb-1"
+      //           >
+      //             <span>${capitalize(element.ability.name)}</span>
+      //           </div>
+      //           <!-- <div class="text-dark fw-bold h5 mb-0">
+      //             <span>$40,000</span>
+      //           </div> -->
+      //         </div>
+      //         <!-- <div class="col-auto">
+      //           <i class="fas fa-calendar fa-2x text-gray-300"></i>
+      //         </div> -->
+      //       </div>
+      //     </div>
+      //   </div>
+      // `;
+      //   abilitiesBanner.appendChild(ability);
+      // });
     });
 }
 
-function getStyleFromType(type) {}
+
+function download(content, fileName, contentType) {
+  var a = document.createElement("a");
+  var file = new Blob([content], { type: contentType });
+  a.href = URL.createObjectURL(file);
+  a.download = fileName;
+  a.click();
+}
+
+function getReport() {
+  let pokemonId = ''
+  try {
+    pokemonId = document.querySelector('#currentPokemon').innerHTML.split('#')[1]
+  } catch (error) {
+    pokemonId = document.querySelector("#search-input").value;
+  }
+  fetch(url + pokemonId)
+    .then(data => data.json())
+    .then(data => {
+      download(JSON.stringify(data), `${data.name}_pokemon.json`, "text/json");
+    })
+}
 
 function generateChart(labelsX, labelsY) {
   /*   const config = {

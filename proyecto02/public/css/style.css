@@ -1,5 +1,6 @@
 :root {
   --first-color: #4E73DF;
+  --first-color-alpha: rgba(78, 115, 223, 0.7);
   --normal-color: #A4AcAF;
   --psychic-color: #F366B9;
   --steel-color: #9EB7B8;
@@ -66,12 +67,93 @@ li {
   background-color: var(--first-color);
 }
 
+.card-title-alpha {
+  background-color: var(--first-color-alpha);
+}
+
+.pokemon-card {
+  text-align: center;
+}
+
+.pokemon-card img {
+  width: 100%;
+  height: auto;
+}
+
+.info.row, .chart.row {
+  height: 50vh;
+}
+.flex.space-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+#lines-graph div, #pie-graph div {
+  width: 100%;
+}
+
+
+@media screen and (min-width: 720px) {
+  .pokemon-card {
+    width: 25vw;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+
+
+  .container-fluid {
+    display: grid;
+    grid-template-columns: repeat(1fr, 3);
+    gap: 1rem;
+  }
+
+  #container {
+    grid-column: 1/2;
+    grid-row: 1/3;
+  }
+
+  #refresh {
+    display: none;
+  }
+
+  #lines-graph {
+    grid-column: 2/4;
+    grid-row: 1/2;
+    justify-content: flex-start;
+
+  }
+
+  #pie-graph {
+    grid-column: 4/5;
+    grid-row: 1/2;
+    width: 30vw;
+    justify-content: flex-start;
+  }
+
+  #projects {
+    grid-column: 1/5;
+    grid-row: 4/5;
+  }
+
+}
+
 #types div {
-  margin: 0 1rem;
+  margin: 1rem;
+  padding: 0.4rem;
+  width: 100%;
 }
 
 .color-white {
   color: white;
+}
+
+.type-container {
+  /* pass */
 }
 
 .normal {
