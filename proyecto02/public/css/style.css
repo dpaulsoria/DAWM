@@ -1,0 +1,131 @@
+:root {
+  --first-color: #4E73DF;
+  --normal-color: #A4AcAF;
+  --psychic-color: #F366B9;
+  --steel-color: #9EB7B8;
+  --dark-color: #707070;
+  --electric-color: #EED535;
+  --fighting-color: #D56723;
+  --flying-color-1: #3DC7EF;
+  --flying-color-2: #BDB9B8;
+  --grass-color: #9BCC50;
+  --ice-color: #51C4E7;
+  --poison-color: #B97FC9;
+  --rock-color: #A38C21;
+  --water-color: #4592C4;
+  --ground-color-1: #F7DE3F;
+  --ground-color-2: #AB9842;
+  --ghost-color: #7B62A3;
+  --fire-color: #FD7D24;
+  --fairy-color: #FDB9E9;
+  --dragon-color-1: #53A4CF;
+  --dragon-color-2: #F16E57;
+  --bug-color: #729F3F;
+}
+
+.fas img {
+  width: 55%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card {
+  padding: 1rem 0;
+}
+
+.header {
+  margin: 1rem 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card-title {
+  background-color: var(--first-color);
+}
+
+#types div {
+  margin: 0 1rem;
+}
+
+.color-white {
+  color: white;
+}
+
+.normal {
+  background-color: var(--normal-color);
+}
+.psychic {
+  background-color: var(--psychic-color);
+}
+.steel {
+  background-color: var(--steel-color);
+}
+.dark {
+  background-color: var(--dark-color);
+}
+.electric {
+  background-color: var(--electric-color);
+}
+.fighting {
+  background-color: var(--fighting-color);
+}
+.ghost {
+  background-color: var(--ghost-color);
+}
+.fire {
+  background-color: var(--fire-color);
+}
+.fairy {
+  background-color: var(--fairy-color);
+}
+.bug {
+  background-color: var(--bug-color);
+}
+.grass {
+  background-color: var(--grass-color);
+}
+.ice {
+  background-color: var(--ice-color);
+}
+.poison {
+  background-color: var(--poison-color);
+}
+.rock {
+  background-color: var(--rock-color);
+}
+.water {
+  background-color: var(--water-color);
+}
+
+.flying {
+  background-color: var(--flying-color-1);
+}
+.ground {
+  background-color: var(--ground-color-1);
+}
+.dragon {
+  background-color: var(--dragon-color-1);
+}
