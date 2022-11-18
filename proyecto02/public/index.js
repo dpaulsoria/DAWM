@@ -35,14 +35,16 @@ function generatePokemonCard(data) {
   let firstDiv = document.createElement('div');
   let secondDiv = document.createElement('div');
   firstDiv.className = 'flex space-between'
+  firstDiv.id = 'firstDiv'
+  secondDiv.id = 'secondDiv'
   secondDiv.className = 'flex space-between'
   let header = document.createElement("div");
   let img = document.createElement("div");
   let description = document.createElement("div");
 
-  header.className = "header";
+  header.className = "header flex rounded";
   let newH2 = document.createElement("h2");
-  newH2.className = "card-title color-white rounded p-2";
+  newH2.className = "color-white p-2";
   newH2.id = "currentPokemon"
   newH2.innerHTML = data.name.toUpperCase() + " #" + data.id;
   header.appendChild(newH2);
