@@ -35,6 +35,11 @@ li {
 
 .card-title {
   background-color: var(--first-color);
+  color:white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  
 }
 
 .card-title-alpha {

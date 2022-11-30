@@ -19,6 +19,7 @@
       rel="stylesheet"
       href="assets/css/styles.min.css?h=bd690b4161c72359ccf54d9202d4ff6a"
     />
+    <link rel="stylesheet" href="style.css">
   </head>
   <body id="page-top">
     <div id="wrapper">
@@ -74,10 +75,11 @@
               >
                 <div class="input-group">
                   <input
+                    id="search-input"
                     class="bg-light form-control border-0 small"
                     type="text"
                     placeholder="Search for ..."
-                  /><button class="btn btn-primary py-0" type="button">
+                  /><button onclick="searchPokemon()" class="btn btn-primary py-0" type="button">
                     <i class="fas fa-search"></i>
                   </button>
                 </div>
@@ -357,17 +359,13 @@
               <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
                 <div class="card">
                   <img
+                    id="card-img"
                     class="card-img-top w-100 d-block fit-cover"
                     style="height: 200px"
-                    src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"
                   />
                   <div class="card-body p-4" style="margin-bottom: 0px">
-                    <h4 class="card-title">Lorem libero donec</h4>
-                    <p class="card-text">
-                      Nullam id dolor id nibh ultricies vehicula ut id elit.
-                      Cras justo odio, dapibus ac facilisis in, egestas eget
-                      quam. Donec id elit non mi porta gravida at eget metus.
-                    </p>
+                    <h4 id="card-title" class="card-title">Lorem libero donec</h4>
+                    <div id="types"></div>
                   </div>
                 </div>
               </div>
@@ -623,5 +621,6 @@
     <script src="assets/bootstrap/js/bootstrap.min.js?h=981245863c383366a329259d02b8172c"></script>
     <script src="assets/js/script.min.js?h=bdf36300aae20ed8ebca7e88738d5267"></script>
     <script src="assets/js/chart.min.min.js?h=bd9843d1866f45d1406a12f7de05f9ff"></script>
+    <script src="index.js"></script>
   </body>
 </html>

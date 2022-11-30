@@ -1,5 +1,7 @@
 let url = "https://pokeapi.co/api/v2/pokemon/";
 
+searchPokemon(1)
+
 function getRandomPokemons() {
   let container = document.getElementById("container");
   if (container.hasChildNodes) removeChilds(container);
@@ -23,42 +25,12 @@ function getRandomPokemons() {
 }
 
 function generatePokemonCard(data) {
-  console.log(data.types);
-  let imgs = [
-    data.sprites.other["official-artwork"].front_default,
-    data.sprites.other["dream_world"].front_default,
-    data.sprites.other["home"].front_default,
-  ];
-  let card = document.createElement("div");
-  card.className = "pokemon-card card flex p-2";
 
-  let firstDiv = document.createElement('div');
-  let secondDiv = document.createElement('div');
-  firstDiv.className = 'flex space-between'
-  firstDiv.id = 'firstDiv'
-  secondDiv.id = 'secondDiv'
-  secondDiv.className = 'flex space-between'
-  let header = document.createElement("div");
-  let img = document.createElement("div");
-  let description = document.createElement("div");
+  let cardTitle = document.querySelector("#card-title");
+  cardTitle.innerHTML = data.name.toUpperCase() + " #" + data.id;
 
-  header.className = "header flex rounded";
-  let newH2 = document.createElement("h2");
-  newH2.className = "color-white p-2";
-  newH2.id = "currentPokemon"
-  newH2.innerHTML = data.name.toUpperCase() + " #" + data.id;
-  header.appendChild(newH2);
-
-  img.className = "img";
-  let newDiv = document.createElement("div");
-  let newImg = document.createElement("img");
-  newImg.src = imgs[0];
-  newDiv.appendChild(newImg);
-  img.appendChild(newDiv);
-
-  if (firstDiv.hasChildNodes) removeChilds(firstDiv)
-  firstDiv.appendChild(header)
-  firstDiv.appendChild(img)
+  let cardImg = document.querySelector("#card-img");
+  cardImg.src = data.sprites.front_default;
 
   let newH3 = document.createElement("h3");
   newH3.className = 'card-title-alpha color-white rounded p-2'
@@ -72,34 +44,7 @@ function generatePokemonCard(data) {
     newLi.className = "card-text p-1";
     newUl.appendChild(newLi);
   });
-
-  description.className = "description";
-  newDiv = document.createElement("div");
-  newDiv.className = "abilities card-body";
-  newDiv.appendChild(newH3);
-  newDiv.appendChild(newUl);
-  description.appendChild(newDiv);
-
-  // card.appendChild(header);
-
-  img.className = "img glass";
-  // card.appendChild(img);
-  // card.appendChild(description);
-  let typesContainer = document.createElement('div')
-  typesContainer.className = "container";
-  typesContainer.innerHTML = `
-    <div id="types" class=""></div>
-  `;
-  // card.appendChild(typesContainer)
-
-  if (secondDiv.hasChildNodes) removeChilds(secondDiv);
-  secondDiv.appendChild(description);
-  secondDiv.appendChild(typesContainer);
-
-  card.appendChild(firstDiv)
-  card.appendChild(secondDiv)
-
-  container.appendChild(card);
+  
 }
 
 function removeChilds(parent) {
@@ -112,10 +57,6 @@ function capitalize(str) {
   return str[0].toUpperCase() + str.substring(1);
 }
 
-let timer = document.getElementById("timer");
-timer.innerHTML = new Date().toLocaleTimeString();
-
-searchPokemon(Math.floor(Math.random() * 894 + 1));
 /* getRandomPokemons(); */
 
 setInterval(() => {
@@ -124,8 +65,7 @@ setInterval(() => {
 }, 1000);
 
 function searchPokemon(id = undefined) {
-  let container = document.getElementById("container");
-  if (container.hasChildNodes) removeChilds(container);
+  
   let pokemonName;
   if (id === undefined)
     pokemonName = document.querySelector("#search-input").value.toLowerCase();
@@ -168,11 +108,11 @@ function searchPokemon(id = undefined) {
       if (typesBanner.hasChildNodes) removeChilds(typesBanner)
       Array.from(res.types).forEach((element, index) => {
         typesBanner.innerHTML += `
-        <div class="rounded col color-white type-container ${element.type.name}">
-            <h4 class="fw-bold mb-0 p-1">${capitalize(
-              element.type.name
-            )}</h4>
-        </div>
+        <h4 class="fw-bold mb-0 p-1 rounded col color-white type-container ${
+          element.type.name
+        }">
+            ${capitalize(element.type.name)}
+        </h4>
         `;
       });
       
