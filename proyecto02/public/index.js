@@ -61,71 +61,99 @@ function generatePokemonCard(data) {
         abilities.appendChild(tmpLi);
       })
     
-     fetch(data.moves[0].move.url)
-       .then((res) => res.json())
-       .then((info) => {
-         console.log(info);
-         let barChart = new Chart(
-           document.getElementById("bar").getContext("2d"),
-           {
-             type: "bar",
-             data: {
-               labels: ["Accuracy", "Power", "PP"],
-               datasets: [
-                 {
-                   label: capitalize(info.name),
-                   data: [info.accuracy, info.power, info.pp],
-                   backgroundColor: [
-                     getColorByType(data.types[0].type.name),
-                     getColorByType(data.types[1].type.name) || "#4E73DF",
-                     "#2f2f2f",
-                   ],
-                 },
-               ],
-             },
-             options: {
-               indexAxis: "y",
-               scales: {
-                 y: {
-                   beginAtZero: true,
-                 },
-               },
-             },
-           }
-         );
-
-         let move = document.querySelector("#select-move");
-         if (move.hasChildNodes) removeChilds(move);
-         let counter = 0;
-         let moves = [];
-         for (let element of data.moves) {
-           console.log(element.move);
-           if (counter < 10) {
-             moves.push(capitalize(element.move.name));
-             counter++;
-           } else {
-             break;
-           }
-         }
-         console.log(moves);
-         counter = 0;
-
-         for (let element of moves) {
-           if (counter < 10) {
-             move.innerHTML += `
-          <option ${counter === 0 ? 'selected=""' : ""}>${element}</option>
-          `;
-             counter++;
-           } else {
-             break;
-           }
-         }
-       });
-  
-
+    
+    updateBarChart(data)
+    
   });
   
  
+}
+
+function updateBar() {
+  // console.log(currentId);
+  // updateBarChart()
+  fetch(url + currentId)
+    .then(data => data.json())
+    .then(data => { 
+      updateBarChart(data);
+    });
+}
+
+function updateBarChart(data) {
+
+  let move = document.querySelector("#select-move");
+  move.innerHTML = "";
+  let counter = 0;
+  let moves = [];
+  for (let element of data.moves) {
+    // console.log(element.move);
+    if (counter < 10) {
+      moves.push([capitalize(element.move.name), element.move.url]);
+      counter++;
+    } else {
+      break;
+    }
+  }
+  console.log(moves);
+  counter = 0;
+
+  for (let element of moves) {
+    if (counter < 10) {
+      move.innerHTML += `
+          <option ${counter === 0 ? 'selected' : ""}>${element[0]}</option>
+          `;
+      counter++;
+    } else {
+      break;
+    }
+  }
+  
+  let currentMove = []
+  for (let m of moves) {
+    if (m[0] === move.value) {
+      currentMove = [move.value, m[1]]
+      break
+    }
+  }
+
+  console.log(currentMove);
+  
+  fetch(currentMove[1])
+    .then((res) => res.json())
+    .then((info) => {
+      // console.log(info);
+
+      let barChart = new Chart(
+        document.getElementById("bar").getContext("2d"),
+        {
+          type: "bar",
+          data: {
+            labels: ["Accuracy", "Power", "PP"],
+            datasets: [
+              {
+                label: capitalize(info.name),
+                data: [info.accuracy, info.power, info.pp],
+                backgroundColor: [
+                  getColorByType(data.types[0].type.name),
+                  data.types[1]
+                    ? getColorByType(data.types[1].type.name)
+                    : "#4E73DF",
+                  "#2f2f2f",
+                ],
+              },
+            ],
+          },
+          options: {
+            indexAxis: "y",
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        }
+      );
+    });
 }
 
 function getColorByType(type) {
@@ -222,7 +250,7 @@ function searchPokemon(id = undefined) {
       });
       
       
-      console.log(res.abilities);
+      // console.log(res.abilities);
       // let abilitiesBanner = document.querySelector("#abilitiesBanner");
       // if (abilitiesBanner.hasChildNodes) removeChilds(abilitiesBanner);
       // Array.from(res.abilities).forEach((element, index) => {
@@ -448,10 +476,4 @@ function generateChart(labelsX, labelsY) {
       },
     },
   };
-}
-
-document.addEventListener(onload, selectMove())
-
-function selectMove() {
-  
 }
