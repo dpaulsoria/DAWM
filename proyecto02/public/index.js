@@ -59,10 +59,10 @@ function capitalize(str) {
 
 /* getRandomPokemons(); */
 
-setInterval(() => {
-  let timer = document.getElementById("timer");
-  timer.innerHTML = new Date().toLocaleTimeString();
-}, 1000);
+// setInterval(() => {
+//   let timer = document.getElementById("timer");
+//   timer.innerHTML = new Date().toLocaleTimeString();
+// }, 1000);
 
 function searchPokemon(id = undefined) {
   
@@ -108,7 +108,7 @@ function searchPokemon(id = undefined) {
       if (typesBanner.hasChildNodes) removeChilds(typesBanner)
       Array.from(res.types).forEach((element, index) => {
         typesBanner.innerHTML += `
-        <h4 class="fw-bold mb-0 p-1 rounded col color-white type-container ${
+        <h4 class="fw-bold p-1 m-2 text-center rounded col color-white type-container ${
           element.type.name
         }">
             ${capitalize(element.type.name)}
