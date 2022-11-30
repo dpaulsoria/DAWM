@@ -76,7 +76,7 @@
                     id="search-input"
                     class="bg-light form-control border-0 small"
                     type="text"
-                    placeholder="Search for ..."
+                    placeholder="Search for name or number"
                   /><button onclick="searchPokemon()" class="btn btn-primary py-0" type="button">
                     <i class="fas fa-search"></i>
                   </button>
@@ -421,6 +421,12 @@
                     class="card-header d-flex justify-content-between align-items-center"
                   >
                     <h6 class="text-primary fw-bold m-0">Random Move stats</h6>
+                    <select id="select-move" 
+                      class="d-inline-block form-select form-select-sm"
+                    >
+                      </select
+                    >
+                    
                     <div class="dropdown no-arrow">
                       <button
                         class="btn btn-link btn-sm dropdown-toggle"
@@ -489,5 +495,8 @@
     <script src="assets/js/script.min.js?h=bdf36300aae20ed8ebca7e88738d5267"></script>
     <script src="assets/js/chart.min.min.js?h=bd9843d1866f45d1406a12f7de05f9ff"></script>
     <script src="index.js"></script>
+    <script>
+      searchPokemon(1);
+    </script>
   </body>
 </html>

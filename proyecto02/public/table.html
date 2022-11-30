@@ -352,13 +352,14 @@
                       aria-controls="dataTable"
                     >
                       <label class="form-label"
-                        >Show&nbsp;<select
+                        >Show&nbsp;<select id="cantd-pok" 
                           class="d-inline-block form-select form-select-sm"
                         >
-                          <option value="10" selected="">10</option>
-                          <option value="25">25</option>
-                          <option value="50">50</option>
-                          <option value="100">100</option></select
+                            <option value="10" selected="">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                          </select
                         >&nbsp;</label
                       >
                     </div>
@@ -378,52 +379,24 @@
                         <th>Types</th>
                         <th>Peso</th>
                         <th>Altura</th>
-                        <th>Salary</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr></tr>
-                      <tr>
-                        <td>
-                          <img
-                            class="rounded-circle me-2"
-                            width="30"
-                            height="30"
-                            src="assets/img/avatars/avatar4.jpeg?h=fefb30b61c8459a66bd338b7d790c3d5"
-                          />Cara Stevens
-                        </td>
-                        <td>Sales Assistant</td>
-                        <td>New York</td>
-                        <td>46</td>
-                        <td>2011/12/06<br /></td>
-                        <td>$145,600</td>
-                      </tr>
-                      <tr></tr>
+                    <tbody id="pokemonListBody">
+                      
                     </tbody>
                     <tfoot>
                       <tr>
                         <td><strong>Name</strong></td>
-                        <td><strong>Position</strong></td>
-                        <td><strong>Office</strong></td>
-                        <td><strong>Age</strong></td>
-                        <td><strong>Start date</strong></td>
-                        <td><strong>Salary</strong></td>
+                        <td><strong>Number</strong></td>
+                        <td><strong>Types</strong></td>
+                        <td><strong>Peso</strong></td>
+                        <td><strong>Altura</strong></td>
                       </tr>
                     </tfoot>
                   </table>
                 </div>
                 <div class="row">
-                  <div class="col-md-6 align-self-center">
-                    <p
-                      id="dataTable_info"
-                      class="dataTables_info"
-                      role="status"
-                      aria-live="polite"
-                    >
-                      Showing 1 to 10 of 27
-                    </p>
-                  </div>
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <nav
                       class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers"
                     >
@@ -469,5 +442,7 @@
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js?h=981245863c383366a329259d02b8172c"></script>
     <script src="assets/js/script.min.js?h=bdf36300aae20ed8ebca7e88738d5267"></script>
+    <script src="index.js"></script>
+    <script src="table.js"></script>
   </body>
 </html>

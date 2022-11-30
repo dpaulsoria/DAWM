@@ -1,6 +1,6 @@
 let url = "https://pokeapi.co/api/v2/pokemon/";
 
-searchPokemon(1)
+let currentId = 1
 
 function getRandomPokemons() {
   let container = document.getElementById("container");
@@ -28,6 +28,7 @@ function generatePokemonCard(data) {
 
   let cardTitle = document.querySelector("#card-title");
   cardTitle.innerHTML = data.name.toUpperCase() + " #" + data.id;
+  currentId = data.id;
 
   let cardImg = document.querySelector("#card-img");
   cardImg.src = data.sprites.front_default;
@@ -59,42 +60,72 @@ function generatePokemonCard(data) {
 
         abilities.appendChild(tmpLi);
       })
+    
+     fetch(data.moves[0].move.url)
+       .then((res) => res.json())
+       .then((info) => {
+         console.log(info);
+         let barChart = new Chart(
+           document.getElementById("bar").getContext("2d"),
+           {
+             type: "bar",
+             data: {
+               labels: ["Accuracy", "Power", "PP"],
+               datasets: [
+                 {
+                   label: capitalize(info.name),
+                   data: [info.accuracy, info.power, info.pp],
+                   backgroundColor: [
+                     getColorByType(data.types[0].type.name),
+                     getColorByType(data.types[1].type.name) || "#4E73DF",
+                     "#2f2f2f",
+                   ],
+                 },
+               ],
+             },
+             options: {
+               indexAxis: "y",
+               scales: {
+                 y: {
+                   beginAtZero: true,
+                 },
+               },
+             },
+           }
+         );
+
+         let move = document.querySelector("#select-move");
+         if (move.hasChildNodes) removeChilds(move);
+         let counter = 0;
+         let moves = [];
+         for (let element of data.moves) {
+           console.log(element.move);
+           if (counter < 10) {
+             moves.push(capitalize(element.move.name));
+             counter++;
+           } else {
+             break;
+           }
+         }
+         console.log(moves);
+         counter = 0;
+
+         for (let element of moves) {
+           if (counter < 10) {
+             move.innerHTML += `
+          <option ${counter === 0 ? 'selected=""' : ""}>${element}</option>
+          `;
+             counter++;
+           } else {
+             break;
+           }
+         }
+       });
+  
 
   });
   
-  fetch(data.moves[0].move.url)
-    .then((res) => res.json())
-    .then((info) => {
-      console.log(info);
-      let barChart = new Chart(
-        document.getElementById("bar").getContext("2d"),
-        {
-          type: "bar",
-          data: {
-            labels: ["Accuracy", "Power", "PP"],
-            datasets: [
-              {
-                label: capitalize(info.name),
-                data: [info.accuracy, info.power, info.pp],
-                backgroundColor: [
-                  getColorByType(data.types[0].type.name),
-                  getColorByType(data.types[1].type.name) || "#4E73DF",
-                  "#2f2f2f",
-                ],
-              },
-            ],
-          },
-          options: {
-            indexAxis: 'y',
-            scales: {
-              y: {
-                beginAtZero: true,
-              },
-            },
-          },
-        }
-      );
-    });
+ 
 }
 
 function getColorByType(type) {
@@ -143,6 +174,7 @@ function searchPokemon(id = undefined) {
   if (id === undefined)
     pokemonName = document.querySelector("#search-input").value.toLowerCase();
   else pokemonName = id;
+  currentId = pokemonName;
 
   // console.log(pokemonName);
   let tmpUrl = url + pokemonName;
@@ -416,4 +448,10 @@ function generateChart(labelsX, labelsY) {
       },
     },
   };
+}
+
+document.addEventListener(onload, selectMove())
+
+function selectMove() {
+  
 }

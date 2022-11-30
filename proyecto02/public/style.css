@@ -27,6 +27,11 @@
   --bug-color: #729F3F;
 }
 
+#select-move option {
+  color: black;
+
+}
+
 #barChart {
   height: auto !important;
   
