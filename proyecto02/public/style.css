@@ -24,29 +24,6 @@
   --bug-color: #729F3F;
 }
 
-.fas img {
-  width: 55%;
-  height: auto;
-  margin: 0;
-  padding: 0;
-}
-
-.flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.card {
-  padding: 1rem 0;
-}
-
-.header {
-  background-color: var(--first-color);
-  margin: 1rem;
-}
-
 ul {
   margin: 0;
   padding: 0;
@@ -56,24 +33,12 @@ li {
   list-style: none;
 }
 
-.flex-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
 .card-title {
   background-color: var(--first-color);
 }
 
 .card-title-alpha {
   background-color: var(--first-color-alpha);
-}
-
-.pokemon-card {
-  text-align: center;
 }
 
 .pokemon-card img {
@@ -110,10 +75,6 @@ li {
 
 .color-white {
   color: white;
-}
-
-.type-container {
-  /* pass */
 }
 
 .normal {
@@ -170,4 +131,12 @@ li {
 }
 .dragon {
   background-color: var(--dragon-color-1);
+}
+
+.col-6 {
+  background-color: red;
+}
+
+.col-3 {
+  background-color: aqua;
 }
