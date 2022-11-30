@@ -32,20 +32,93 @@ function generatePokemonCard(data) {
   let cardImg = document.querySelector("#card-img");
   cardImg.src = data.sprites.front_default;
 
-  let newH3 = document.createElement("h3");
-  newH3.className = 'card-title-alpha color-white rounded p-2'
-  newH3.innerHTML = "Abilities";
-
-  let newUl = document.createElement("ul");
-  newUl.className = "flex";
+  let abilities = document.querySelector("#abilities");
+  if (abilities.hasChildNodes) removeChilds(abilities)
   Array.from(data.abilities).forEach((element, index) => {
-    let newLi = document.createElement("li");
-    newLi.innerHTML = capitalize(element.ability.name);
-    newLi.className = "card-text p-1";
-    newUl.appendChild(newLi);
+    let tmpLi = document.createElement('li')
+
+    fetch(element.ability.url)
+      .then(data => data.json())
+      .then(data => {
+        let info = 'No info'
+        Array.from(data.effect_entries).forEach((element) => {
+          if (element.language.name === "en") {
+            info = element.effect
+          }
+        })
+        let h4 = document.createElement('h4')
+        h4.className = 'fw-bold'
+        h4.innerHTML = capitalize(element.ability.name);
+        let div = document.createElement('div')
+        let p = document.createElement('p')
+        p.innerHTML = info
+        div.appendChild(p)
+        
+        tmpLi.appendChild(h4)
+        tmpLi.appendChild(div)
+
+        abilities.appendChild(tmpLi);
+      })
+
   });
   
+  fetch(data.moves[0].move.url)
+    .then((res) => res.json())
+    .then((info) => {
+      console.log(info);
+      let barChart = new Chart(
+        document.getElementById("bar").getContext("2d"),
+        {
+          type: "bar",
+          data: {
+            labels: ["Accuracy", "Power", "PP"],
+            datasets: [
+              {
+                label: capitalize(info.name),
+                data: [info.accuracy, info.power, info.pp],
+                backgroundColor: [
+                  getColorByType(data.types[0].type.name),
+                  getColorByType(data.types[1].type.name) || "#4E73DF",
+                  "#2f2f2f",
+                ],
+              },
+            ],
+          },
+          options: {
+            indexAxis: 'y',
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        }
+      );
+    });
 }
+
+function getColorByType(type) {
+  if (type === 'normal') return "#A4AcAF"
+  else if (type === 'psychic') return "#F366B9"
+  else if (type === 'steel') return "#9EB7B8"
+  else if (type === "dark") return "#707070";
+  else if (type === "electric") return "#EED535";
+  else if (type === "fighting") return "#fighting";
+  else if (type === "flying") return "#3DC7EF";
+  else if (type === "grass") return "#9BCC50";
+  else if (type === "ice") return "#51C4E7";
+  else if (type === "poison") return "#B97FC9";
+  else if (type === "rock") return "#A38C21";
+  else if (type === "water") return "#4592C4";
+  else if (type === "ground") return "#F7DE3F";
+  else if (type === "ghost") return "#7B62A3";
+  else if (type === "fire") return "#FD7D24";
+  else if (type === "fairy") return "#FDB9E9";
+  else if (type === "dragon") return "#53A4CF";
+  else if (type === "bug") return "#729F3F";
+  else return null
+}
+
 
 function removeChilds(parent) {
   while (parent.lastChild) {
@@ -280,7 +353,7 @@ function generateChart(labelsX, labelsY) {
  */
 
   return {
-    type: "line",
+    type: "radar",
     data: {
       labels: labelsX,
       datasets: [

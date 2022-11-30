@@ -1,6 +1,9 @@
 :root {
   --first-color: #4E73DF;
   --first-color-alpha: rgba(78, 115, 223, 0.7);
+
+
+
   --normal-color: #A4AcAF;
   --psychic-color: #F366B9;
   --steel-color: #9EB7B8;
@@ -22,6 +25,11 @@
   --dragon-color-1: #53A4CF;
   --dragon-color-2: #F16E57;
   --bug-color: #729F3F;
+}
+
+#barChart {
+  height: auto !important;
+  
 }
 
 ul {
@@ -46,7 +54,7 @@ li {
   background-color: var(--first-color-alpha);
 }
 
-.pokemon-card img {
+#logo {
   width: 100%;
   height: auto;
 }
