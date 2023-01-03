@@ -1,0 +1,18 @@
+.Menu ul {
+  list-style: none;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+}
+
+.Menu li {
+  padding: 15px;
+  margin: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.none {
+  display: none;
+}
