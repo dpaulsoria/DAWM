@@ -1,26 +1,41 @@
 import "./App.css";
-import React from "react";
-import { SearchAppBar } from "./components/Topbar";
+import "./Style.css";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { HomePage } from "./pages/HomePage";
-import { NotFoundPage } from "./pages/NotFoundPage";
-import { StatsPage } from "./pages/StatsPage";
-import { Menu } from "./components/Menu";
+
+import { SearchBar } from "./components/SearchBar";
+import { NotFound } from "./components/NotFound";
+import { Header } from "./components/Header";
+
+import { Home } from "./views/Home";
+
+import { ThemeProvider } from "@emotion/react";
+import { createTheme } from "@mui/material/styles";
+import { colors } from "@mui/material";
+
+const Theme = createTheme({
+  palette: {
+    primary: {
+      main: colors.orange[500],
+    },
+  },
+});
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <SearchAppBar />
-        <Routes>
-          <Route path="/" element={<HomePage/>} />
-          <Route path="/stats" element={<StatsPage />} />
-          <Route path="/moves" element={<StatsPage />} />
-          <Route path="/abilities" element={<StatsPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-        <Menu />
-      </BrowserRouter>
+      <ThemeProvider theme={Theme}>
+        <BrowserRouter>
+          <SearchBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/baseStats" element={<NotFound />} />
+            <Route path="/moves" element={<NotFound />} />
+            <Route path="/abilities" element={<NotFound />} />
+          </Routes>
+          <Header className="header" />
+        </BrowserRouter>
+      </ThemeProvider>
     </div>
   );
 }
